@@ -18,7 +18,7 @@ ENVIRONMENTS = [
     "prod", "production", "prd",
     "dev", "development",
     "staging", "stg", "stage",
-    "qa", "test", "testing",
+    "qa", "test", "testing", "qas",
     "hmg", "homologation", "homologacao", "hml",
     "uat", "sandbox",
 ]
