@@ -1,0 +1,387 @@
+services:
+  - name: netlify
+    format: "{target}.netlify.app"
+
+  - name: herokuapp
+    format: "{target}.herokuapp.com"
+
+  - name: awsapps
+    format: "{target}.awsapps.com"
+
+  - name: vercel
+    format: "{target}.vercel.app"
+  
+  - name: s3-amazonaws
+    format: "{target}.s3.amazonaws.com"
+
+  - name: elasticbeanstalk
+    format: "{target}.elasticbeanstalk.com"
+
+  - name: cloudfront
+    format: "{target}.cloudfront.net"
+
+  - name: execute-api-amazonaws
+    format: "{target}.execute-api.amazonaws.com"
+
+  - name: azurewebsites
+    format: "{target}.azurewebsites.net"
+
+  - name: blob-core-windows
+    format: "{target}.blob.core.windows.net"
+
+  - name: cloudapp
+    format: "{target}.cloudapp.net"
+
+  - name: cloudapp-azure
+    format: "{target}.cloudapp.azure.com"
+
+  - name: trafficmanager
+    format: "{target}.trafficmanager.net"
+
+  - name: redis-cache-windows
+    format: "{target}.redis.cache.windows.net"
+
+  - name: database-windows
+    format: "{target}.database.windows.net"
+
+  - name: documents-azure
+    format: "{target}.documents.azure.com"
+
+  - name: file-core-windows
+    format: "{target}.file.core.windows.net"
+
+  - name: queue-core-windows
+    format: "{target}.queue.core.windows.net"
+
+  - name: table-core-windows
+    format: "{target}.table.core.windows.net"
+
+  - name: sharepoint
+    format: "{target}.sharepoint.com"
+
+  - name: mail-protection-outlook
+    format: "{target}.mail.protection.outlook.com"
+
+  - name: azureedge
+    format: "{target}.azureedge.net"
+
+  - name: azurecontainer
+    format: "{target}.azurecontainer.io"
+
+  - name: azure-api
+    format: "{target}.azure-api.net"
+
+  - name: azurehdinsight
+    format: "{target}.azurehdinsight.net"
+
+  - name: azuredatalakestore
+    format: "{target}.azuredatalakestore.net"
+
+  - name: search-windows
+    format: "{target}.search.windows.net"
+
+  - name: azurecr
+    format: "{target}.azurecr.io"
+
+  - name: servicebus-windows
+    format: "{target}.servicebus.windows.net"
+
+  - name: storage-googleapis
+    format: "{target}.storage.googleapis.com"
+
+  - name: appspot
+    format: "{target}.appspot.com"
+
+  - name: cloudfunctions
+    format: "{target}.cloudfunctions.net"
+
+  - name: firebaseapp
+    format: "{target}.firebaseapp.com"
+
+  - name: herokussl
+    format: "{target}.herokussl.com"
+
+  - name: herokudns
+    format: "{target}.herokudns.com"
+
+  - name: force
+    format: "{target}.force.com"
+
+  - name: my-salesforce
+    format: "{target}.my.salesforce.com"
+
+  - name: cloudforce
+    format: "{target}.cloudforce.com"
+
+  - name: lightning-force
+    format: "{target}.lightning.force.com"
+
+  - name: atlassian
+    format: "{target}.atlassian.net"
+
+  - name: bitbucket
+    format: "{target}.bitbucket.io"
+
+  - name: github
+    format: "{target}.github.io"
+
+  - name: gitlab
+    format: "{target}.gitlab.io"
+
+  - name: zendesk
+    format: "{target}.zendesk.com"
+
+  - name: freshdesk
+    format: "{target}.freshdesk.com"
+
+  - name: helpjuice
+    format: "{target}.helpjuice.com"
+
+  - name: helpscoutdocs
+    format: "{target}.helpscoutdocs.com"
+
+  - name: helpsite
+    format: "{target}.helpsite.io"
+
+  - name: desk
+    format: "{target}.desk.com"
+
+  - name: uservoice
+    format: "{target}.uservoice.com"
+
+  - name: webflow
+    format: "{target}.webflow.io"
+
+  - name: ghost
+    format: "{target}.ghost.io"
+
+  - name: surge
+    format: "{target}.surge.sh"
+
+  - name: readme
+    format: "{target}.readme.io"
+
+  - name: readmessl
+    format: "{target}.readmessl.com"
+
+  - name: gitbook
+    format: "{target}.gitbook.io"
+
+  - name: notion
+    format: "{target}.notion.site"
+
+  - name: canny
+    format: "{target}.canny.io"
+
+  - name: statuspage
+    format: "{target}.statuspage.io"
+
+  - name: pantheonsite
+    format: "{target}.pantheonsite.io"
+
+  - name: acquia-sites
+    format: "{target}.acquia-sites.com"
+
+  - name: wpengine
+    format: "{target}.wpengine.com"
+
+  - name: kinsta
+    format: "{target}.kinsta.cloud"
+
+  - name: wordpress
+    format: "{target}.wordpress.com"
+
+  - name: tumblr
+    format: "{target}.tumblr.com"
+
+  - name: cargo
+    format: "{target}.cargo.site"
+
+  - name: tilda
+    format: "{target}.tilda.ws"
+
+  - name: uberflip
+    format: "{target}.uberflip.com"
+
+  - name: brightcove
+    format: "{target}.brightcove.net"
+
+  - name: wistia
+    format: "{target}.wistia.com"
+
+  - name: myshopify
+    format: "{target}.myshopify.com"
+
+  - name: strikingly
+    format: "{target}.strikingly.com"
+
+  - name: unbounce
+    format: "{target}.unbounce.com"
+
+  - name: unbouncepages
+    format: "{target}.unbouncepages.com"
+
+  - name: instapage
+    format: "{target}.instapage.com"
+
+  - name: launchrock
+    format: "{target}.launchrock.com"
+
+  - name: campaignmonitor
+    format: "{target}.campaignmonitor.com"
+
+  - name: sendgrid
+    format: "{target}.sendgrid.net"
+
+  - name: fastly
+    format: "{target}.fastly.net"
+
+  - name: cloudflare
+    format: "{target}.cloudflare.net"
+
+  - name: maxcdn
+    format: "{target}.maxcdn.com"
+
+  - name: netdna-cdn
+    format: "{target}.netdna-cdn.com"
+
+  - name: myjetbrains
+    format: "{target}.myjetbrains.com"
+
+  - name: squarespace
+    format: "{target}.squarespace.com"
+
+  - name: squarespace6
+    format: "{target}.squarespace6.com"
+
+  - name: ext-cust-squarespace
+    format: "{target}.ext-cust.squarespace.com"
+
+  - name: ext-squarespace
+    format: "{target}.ext.squarespace.com"
+
+  - name: apigee
+    format: "{target}.apigee.net"
+
+  - name: bydiscourse
+    format: "{target}.bydiscourse.com"
+
+  - name: pageserve
+    format: "{target}.pageserve.co"
+
+  - name: arlo
+    format: "{target}.arlo.co"
+
+  - name: pmail5
+    format: "{target}.pmail5.com"
+
+  - name: cm-hosting
+    format: "{target}.cm-hosting.com"
+
+  - name: locationinsight
+    format: "{target}.locationinsight.com"
+
+  - name: gitbooks
+    format: "{target}.gitbooks.io"
+
+  - name: ondigitalocean
+    format: "{target}.ondigitalocean.app"
+
+  - name: digitaloceanspaces
+    format: "{target}.digitaloceanspaces.com"
+
+  - name: onrender
+    format: "{target}.onrender.com"
+
+  - name: railway
+    format: "{target}.railway.app"
+
+  - name: fly-dev
+    format: "{target}.fly.dev"
+
+  - name: pages-cloudflare
+    format: "{target}.pages.dev"
+
+  - name: workers-cloudflare
+    format: "{target}.workers.dev"
+
+  - name: amplifyapp
+    format: "{target}.amplifyapp.com"
+
+  - name: azurestaticapps
+    format: "{target}.azurestaticapps.net"
+
+  - name: run-app-firebase
+    format: "{target}.run.app"
+
+  - name: web-app-firebase
+    format: "{target}.web.app"
+
+  - name: repl
+    format: "{target}.repl.co"
+
+  - name: replit-dev
+    format: "{target}.replit.dev"
+
+  - name: replit-app
+    format: "{target}.replit.app"
+
+  - name: glitch
+    format: "{target}.glitch.me"
+
+  - name: streamlit
+    format: "{target}.streamlit.app"
+
+  - name: streamlitapp
+    format: "{target}.streamlitapp.com"
+
+  - name: hf-space
+    format: "{target}.hf.space"
+
+  - name: supabase
+    format: "{target}.supabase.co"
+
+  - name: pythonanywhere
+    format: "{target}.pythonanywhere.com"
+
+  - name: mybluemix
+    format: "{target}.mybluemix.net"
+
+  - name: appdomain-cloud
+    format: "{target}.appdomain.cloud"
+
+  - name: linodeobjects
+    format: "{target}.linodeobjects.com"
+
+  - name: s3-regional
+    format: "{target}.s3.{region}.amazonaws.com"
+
+  - name: s3-legacy
+    format: "{target}.s3-{region}.amazonaws.com"
+
+  - name: s3-website-dash
+    format: "{target}.s3-website-{region}.amazonaws.com"
+
+  - name: s3-website-dot
+    format: "{target}.s3-website.{region}.amazonaws.com"
+
+  - name: lambda-url
+    format: "{target}.lambda-url.{region}.on.aws"
+
+  - name: pantheon-dev
+    format: "dev-{target}.pantheonsite.io"
+
+  - name: pantheon-test
+    format: "test-{target}.pantheonsite.io"
+
+  - name: pantheon-live
+    format: "live-{target}.pantheonsite.io"
+
+  - name: acquia-env
+    format: "{target}.{env}.acquia-sites.com"
+
+  - name: elasticbeanstalk-regional
+    format: "{target}.{region}.elasticbeanstalk.com"
+
+  - name: azurecontainer-regional
+    format: "{target}.{region}.azurecontainer.io"
