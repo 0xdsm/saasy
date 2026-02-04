@@ -99,7 +99,7 @@ sassy nubank --output results.txt
 
 <br>
 
-## Flowchat
+## Flowchart
 <picture>
     <img src="img/mermaid.png" height="1000px">
 </picture>
