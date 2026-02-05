@@ -191,6 +191,10 @@ def compare_baseline(result: dict, size_margin_percent: float = 0.15) -> bool:
     if (target_is_error or target_is_redirect) and not (baseline_is_error or baseline_is_redirect):
         return False
 
+    target_is_success = 200 <= target_status < 300
+    if target_is_success and baseline_is_error:
+        return True
+
     if target["body_hash"] == baseline["body_hash"]:
         return False
 
@@ -205,23 +209,38 @@ def compare_baseline(result: dict, size_margin_percent: float = 0.15) -> bool:
     return True
     
 
-async def run(target: str, output: str, threads: int, verbose: bool) -> None:
-    console.print("[cyan]sassy 0.1.0 :: discover third-party services from companies[/]\n", highlight=False)
+async def run(target: str, output: str, threads: int, verbose: bool, services: list[str] | None = None, follow_redirects: bool = False) -> None:
+    console.print("[cyan]sassy 0.1.1 :: discover third-party services from companies[/]\n", highlight=False)
 
-    services = parse_services_yaml()
+    all_services = parse_services_yaml()
 
-    if not services:
+    if not all_services:
         return
 
+    if services:
+        all_services = [s for s in all_services if s["name"] in services]
+        if not all_services:
+            console.print("[red][!][/] No matching services found", highlight=False)
+            return
+
     expanded_services = []
-    for service in services:
+    for service in all_services:
         expanded_services.extend(expand_service(service))
 
     console.print(f"[yellow][!][/] Running... ({len(expanded_services)} checks)\n", highlight=False)
 
     semaphore = asyncio.Semaphore(threads)
 
-    async with httpx.AsyncClient() as client:
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+    }
+
+    async with httpx.AsyncClient(headers=headers, follow_redirects=follow_redirects) as client:
         tasks = [
             check_service(client, service, target, semaphore, verbose)
             for service in expanded_services
