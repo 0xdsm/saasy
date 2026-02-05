@@ -60,8 +60,8 @@ def main() -> None:
     services = None
     if args.services:
         services = []
-        for s in args.services:
-            services.extend(s.split(','))
+        for service in args.services:
+            services.extend(service.split(','))
 
     asyncio.run(run(
         target=args.target,
