@@ -385,3 +385,6 @@ services:
 
   - name: azurecontainer-regional
     format: "{target}.{region}.azurecontainer.io"
+
+  - name: hub-docker
+    format: "hub.docker.com/u/{target}"
