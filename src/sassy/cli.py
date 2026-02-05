@@ -41,11 +41,33 @@ def main() -> None:
         action='store_true'
     )
 
+    parser.add_argument(
+        "-s", "--service",
+        help="Specify one or more services to check (use service name from services.yaml)",
+        action='append',
+        dest='services'
+    )
+
+    parser.add_argument(
+        "-f", "--follow-redirects",
+        help="Follow HTTP redirects",
+        action='store_true',
+        dest='follow_redirects'
+    )
+
     args = parser.parse_args()
+
+    services = None
+    if args.services:
+        services = []
+        for s in args.services:
+            services.extend(s.split(','))
 
     asyncio.run(run(
         target=args.target,
         output=args.output,
         threads=args.threads,
         verbose=args.verbose,
+        services=services,
+        follow_redirects=args.follow_redirects,
     ))
