@@ -210,7 +210,7 @@ def compare_baseline(result: dict, size_margin_percent: float = 0.15) -> bool:
     
 
 async def run(target: str, output: str, threads: int, verbose: bool, services: list[str] | None = None, follow_redirects: bool = False) -> None:
-    console.print("[cyan]sassy 0.1.1 :: discover third-party services from companies[/]\n", highlight=False)
+    console.print("[cyan]sassy 0.1.2 :: discover third-party services from companies[/]\n", highlight=False)
 
     all_services = parse_services_yaml()
 

@@ -388,3 +388,12 @@ services:
 
   - name: hub-docker
     format: "hub.docker.com/u/{target}"
+
+  - name: service-now
+    format: "{target}.service-now.com"
+
+  - name: 'identity-now'
+    format: "{target}.identitynow.com"
+
+  - name: 'sailpoint'
+    format: "{target}.login.sailpoint.com"
