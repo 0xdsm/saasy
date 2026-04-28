@@ -6,7 +6,7 @@
 
 <hr/>
 
-sassy is a Python tool designed to enumerate third-party services from companies. It uses the targeted company name as the keyword and a placeholder scheme to create a service URL and see if it's a published service. To avoid false positives, it uses a comparison runtime mechanism based on status code, response body size, and response body hash (SHA-256) to generate a baseline and compare it with the actual request, analyzing if there is any similarity between the target service and the already known invalid baseline.
+saasy is a Python tool designed to enumerate third-party services from companies. It uses the targeted company name as the keyword and a placeholder scheme to create a service URL and see if it's a published service. To avoid false positives, it uses a comparison runtime mechanism based on status code, response body size, and response body hash (SHA-256) to generate a baseline and compare it with the actual request, analyzing if there is any similarity between the target service and the already known invalid baseline.
 
 <br>
 
@@ -17,37 +17,37 @@ We recommend using [pipx](https://github.com/pypa/pipx) to install the project, 
 ```
 sudo apt install pipx git
 pipx ensurepath
-pipx install git+https://github.com/0xdsm/sassy
+pipx install git+https://github.com/0xdsm/saasy
 ```
 
 ### MacOS
 ```
 brew install pipx
 pipx ensurepath
-pipx install git+https://github.com/0xdsm/sassy
+pipx install git+https://github.com/0xdsm/saasy
 ```
 
 ### Local
 ```
-git clone https://github.com/0xdsm/sassy.git
+git clone https://github.com/0xdsm/saasy.git
 pipx install .
 ```
 
 ### Updating
 ```
-pipx reinstall sassy
+pipx reinstall saasy
 ```
 
 <br>
 
 ## Usage
 
-To start using sassy, you need to specify a target (keyword). The basic usage is as follows:
+To start using saasy, you need to specify a target (keyword). The basic usage is as follows:
 
 Basic usage:
 ```sh
-sassy nubank
-sassy 0.1.0 :: discover third-party services from companies
+saasy nubank
+saasy 0.1.0 :: discover third-party services from companies
 
 [!] Running... (257 checks)
 
@@ -68,8 +68,8 @@ sassy 0.1.0 :: discover third-party services from companies
 
 You can specify the flag `--verbose` to see the detailed enumeration process. For example:
 ```
-sassy nubank --verbose
-sassy 0.1.0 :: discover third-party services from companies
+saasy nubank --verbose
+saasy 0.1.0 :: discover third-party services from companies
 
 [!] Running... (257 checks)
 
@@ -94,7 +94,7 @@ sassy 0.1.0 :: discover third-party services from companies
 
 Also, you can save the valid findings in a file with the flag `--output <filename>`. For example:
 ```
-sassy nubank --output results.txt
+saasy nubank --output results.txt
 ```
 
 <br>

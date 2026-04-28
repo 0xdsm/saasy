@@ -4,14 +4,14 @@ from sys import argv
 from rich.console import Console
 console = Console()
 
-from sassy.core import run
+from saasy.core import run
 
 def main() -> None:
     """
     """
 
     parser = ArgumentParser(
-        description="Arguments for sassy"
+        description="Arguments for saasy"
     )
 
     if len(argv) == 1:

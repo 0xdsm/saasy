@@ -11,7 +11,7 @@ from string import ascii_lowercase, digits
 from rich.console import Console
 console = Console()
 
-from sassy.resources.utils import AZURE_REGIONS, AWS_REGIONS, ENVIRONMENTS
+from saasy.resources.utils import AZURE_REGIONS, AWS_REGIONS, ENVIRONMENTS
 
 RESOURCES = Path(__file__).parent / "resources"
 YAML_FILE = RESOURCES / "services.yaml"
@@ -210,7 +210,7 @@ def compare_baseline(result: dict, size_margin_percent: float = 0.15) -> bool:
     
 
 async def run(target: str, output: str, threads: int, verbose: bool, services: list[str] | None = None, follow_redirects: bool = False) -> None:
-    console.print("[cyan]sassy 0.1.2 :: discover third-party services from companies[/]\n", highlight=False)
+    console.print("[cyan]saasy 0.1.2 :: discover third-party services from companies[/]\n", highlight=False)
 
     all_services = parse_services_yaml()
 

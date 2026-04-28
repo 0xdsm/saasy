@@ -1,4 +1,4 @@
-from sassy.cli import main
+from saasy.cli import main
 
 if __name__ == "__main__":
     main()
