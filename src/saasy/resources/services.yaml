@@ -397,3 +397,114 @@ services:
 
   - name: 'sailpoint'
     format: "{target}.login.sailpoint.com"
+
+  - name: jfrog
+    format: "{target}.jfrog.io"
+
+  - name: auth0
+    format: "{target}.auth0.com"
+
+  - name: okta
+    format: "{target}.okta.com"
+
+  - name: oktapreview
+    format: "{target}.oktapreview.com"
+
+  - name: onelogin
+    format: "{target}.onelogin.com"
+
+  - name: pingone
+    format: "{target}.pingone.com"
+
+  - name: slack
+    format: "{target}.slack.com"
+
+  - name: zoom
+    format: "{target}.zoom.us"
+
+  - name: intercom-mail
+    format: "{target}.intercom-mail.com"
+
+  - name: drift
+    format: "{target}.drift.com"
+
+  - name: sentry
+    format: "{target}.sentry.io"
+
+  - name: datadoghq
+    format: "{target}.datadoghq.com"
+
+  - name: pagerduty
+    format: "{target}.pagerduty.com"
+
+  - name: newrelic
+    format: "{target}.newrelic.com"
+
+  - name: snowflakecomputing
+    format: "{target}.snowflakecomputing.com"
+
+  - name: databricks
+    format: "{target}.cloud.databricks.com"
+
+  - name: looker
+    format: "{target}.looker.com"
+
+  - name: mixpanel
+    format: "{target}.mixpanel.com"
+
+  - name: amplitude
+    format: "{target}.amplitude.com"
+
+  - name: mailgun
+    format: "{target}.mailgun.org"
+
+  - name: mailchimp
+    format: "{target}.mailchimp.com"
+
+  - name: hubspot
+    format: "{target}.hubspot.com"
+
+  - name: list-manage
+    format: "{target}.list-manage.com"
+
+  - name: workday
+    format: "{target}.workday.com"
+
+  - name: bamboohr
+    format: "{target}.bamboohr.com"
+
+  - name: greenhouse
+    format: "{target}.greenhouse.io"
+
+  - name: lever
+    format: "{target}.lever.co"
+
+  - name: monday
+    format: "{target}.monday.com"
+
+  - name: asana
+    format: "{target}.asana.com"
+
+  - name: typeform
+    format: "{target}.typeform.com"
+
+  - name: calendly
+    format: "{target}.calendly.com"
+
+  - name: miro
+    format: "{target}.miro.com"
+
+  - name: contentful
+    format: "{target}.contentful.com"
+
+  - name: prismic
+    format: "{target}.prismic.io"
+
+  - name: algolia
+    format: "{target}.algolia.net"
+
+  - name: twil
+    format: "{target}.twil.io"
+
+  - name: launchdarkly
+    format: "{target}.launchdarkly.com"

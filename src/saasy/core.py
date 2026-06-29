@@ -7,8 +7,10 @@ from itertools import product
 from pathlib import Path
 from random import choices
 from string import ascii_lowercase, digits
+from urllib.parse import urlparse
 
 from rich.console import Console
+from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, TimeElapsedColumn, MofNCompleteColumn
 console = Console()
 
 from saasy.resources.utils import AZURE_REGIONS, AWS_REGIONS, ENVIRONMENTS
@@ -104,6 +106,7 @@ async def check_service(
                 "status_code": baseline_response.status_code,
                 "body_size": len(baseline_response.text),
                 "body_hash": sha256(baseline_response.text.encode()).hexdigest(),
+                "location": baseline_response.headers.get("location", "").replace(random_subdomain, "*"),
             }
 
             log(f'{name} baseline: {baseline}', verbose)
@@ -124,6 +127,7 @@ async def check_service(
             "status_code": target_response.status_code,
             "body_size": len(target_response.text),
             "body_hash": sha256(target_response.text.encode()).hexdigest(),
+            "location": target_response.headers.get("location", "").replace(target, "*"),
         }
 
         log(f'{name} target: {result}', verbose)
@@ -174,6 +178,15 @@ def compare_baseline(result: dict, size_margin_percent: float = 0.15) -> bool:
     baseline_is_redirect = 300 <= baseline_status < 400
     target_is_redirect = 300 <= target_status < 400
     if baseline_is_redirect and target_is_redirect:
+        # Subdomain já normalizado para "*" — se Location normalizada bate, é mesmo destino
+        # (wildcard self-redirect: miro/bamboohr/pagerduty etc); se diverge, é serviço distinto
+        # (jfrog válido → /ui/login vs inválido → landing.jfrog.com/reactivate-server)
+        if baseline.get("location", "") == target.get("location", ""):
+            return False
+        baseline_host = urlparse(baseline.get("location", "")).netloc.lower()
+        target_host = urlparse(target.get("location", "")).netloc.lower()
+        if baseline_host != target_host:
+            return True
         return False
 
     baseline_is_error = 400 <= baseline_status < 600
@@ -210,7 +223,7 @@ def compare_baseline(result: dict, size_margin_percent: float = 0.15) -> bool:
     
 
 async def run(target: str, output: str, threads: int, verbose: bool, services: list[str] | None = None, follow_redirects: bool = False) -> None:
-    console.print("[cyan]saasy 0.1.2 :: discover third-party services from companies[/]\n", highlight=False)
+    console.print("[cyan]saasy 0.1.3 :: discover third-party services from companies[/]\n", highlight=False)
 
     all_services = parse_services_yaml()
 
@@ -240,18 +253,28 @@ async def run(target: str, output: str, threads: int, verbose: bool, services: l
         "Upgrade-Insecure-Requests": "1",
     }
 
+    valid_findings = []
     async with httpx.AsyncClient(headers=headers, follow_redirects=follow_redirects) as client:
         tasks = [
             check_service(client, service, target, semaphore, verbose)
             for service in expanded_services
         ]
-        results = await asyncio.gather(*tasks)
-
-    valid_findings = []
-    for result in results:
-        if result and compare_baseline(result):
-            valid_findings.append(result)
-            console.print(f"[bold green][+][/] {result['url']}", highlight=False)
+        with Progress(
+            SpinnerColumn(),
+            TextColumn("[progress.description]{task.description}"),
+            BarColumn(),
+            MofNCompleteColumn(),
+            TimeElapsedColumn(),
+            console=console,
+            transient=True,
+        ) as progress:
+            bar = progress.add_task("checking", total=len(tasks))
+            for coro in asyncio.as_completed(tasks):
+                result = await coro
+                if result and compare_baseline(result):
+                    valid_findings.append(result)
+                    progress.console.print(f"[bold green][+][/] {result['url']}", highlight=False)
+                progress.advance(bar)
 
     if not valid_findings:
         console.print("[yellow][-][/] No valid findings", highlight=False)
